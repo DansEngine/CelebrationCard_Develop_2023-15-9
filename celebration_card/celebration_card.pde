@@ -12,7 +12,7 @@ void setup() {
   //Character Escapes, tab, new
   //
   //fullScreen();
-  size(1080,720);
+  size(810,540);
   int appWidth = width;
   int appHeight = height;
   //
@@ -20,11 +20,11 @@ void setup() {
   x = appWidth*0;
   y = appHeight*0;
   W = appWidth -1;
-  H = appWidth -1;
-  x2 = appWidth*1;
-  y2 = appHeight*1;
-  W2 = appWidth -1;
-  H2 = appWidth -1;
+  H = appHeight -1;
+  x2 = appWidth*1/4;
+  y2 = appHeight*1/4;
+  W2 = appWidth *1/2;
+  H2 = appHeight *1/2;
   //
 } //End setup
 //
