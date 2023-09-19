@@ -1,8 +1,12 @@
 //Global Variables
 int appWidth, appHeight;
-float x, y, W, H;
-float x2, y2, W2, H2;
+float xRectbackground, yRectbackground, WRectbackground, HRectbackground;
+float x2Quit, y2Quit, W2Quit, H2Quit;
 //
+// x = x axes of rectangle
+// y = y axes of rectangle
+// W = width of rectangle
+// H = height of rectangle
 void setup() {
   //Ctrl+T: wide space
   //print and println
@@ -12,31 +16,37 @@ void setup() {
   //Character Escapes, tab, new
   //
   //fullScreen();
-  size(810,540);
+  size(1080,720);
   int appWidth = width;
   int appHeight = height;
   //
   //Population
-  x = appWidth*0;
-  y = appHeight*0;
-  W = appWidth -1;
-  H = appHeight -1;
-  x2 = appWidth*1/4;
-  y2 = appHeight*1/4;
-  W2 = appWidth *1/2;
-  H2 = appHeight *1/2;
+  xRectbackground = appWidth*0;
+  yRectbackground = appHeight*0;
+  WRectbackground = appWidth -1;
+  HRectbackground = appHeight -1;
+  x2Quit = appWidth*1/4;
+  y2Quit = appHeight*1/4;
+  W2Quit = appWidth *1/2;
+  H2Quit = appHeight *1/2;
   //
 } //End setup
-//
+  //
 void draw() {
-  rect(x, y, W, H);
-  rect(x2, y2, W2, H2);
+  rect(xRectbackground, yRectbackground, WRectbackground, HRectbackground);
+  rect(x2Quit, y2Quit, W2Quit, H2Quit);
+//text ("Microsoft" ,X float,Y float);
+//textSize (Size);
 } //End draw
 //
 void keyPressed() {
 } //End keypressed
 //
 void mousePressed() {
+  println("Mouse X: ", mouseX, "Mouse Y: ", mouseY);
+  //
+  //x2, y2, W2, H2
+  if ( mouseX>x2Quit && mouseX<x2Quit+W2Quit && mouseY>y2Quit && mouseY<y2Quit+H2Quit) exit();
 } //End mousePressed
 //
 //End MAIN Program
