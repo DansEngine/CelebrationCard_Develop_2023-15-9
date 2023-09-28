@@ -2,6 +2,10 @@
 int appWidth, appHeight;
 float xRectbackground, yRectbackground, WRectbackground, HRectbackground;
 float x2Quit, y2Quit, W2Quit, H2Quit;
+//String //All tect variables as name = value pairs
+//PFont ;//All fonts used
+//color (variables)=Hex", ; //colour palette & ink; All color variables used (use color selector/tools)
+//int sizeFont, size ; //Text variables
 //
 // x = x axes of rectangle
 // y = y axes of rectangle
@@ -46,10 +50,23 @@ void setup() {
   //rect(); //Click Here button.
   //rect(); //Ctrl + C.
   //
+  //Text Setup
+  //Fonts from OS (operation system)
+  //String[] fontList = PFont.list (); //List all fonts available on OS
+  //printArray(fontList);
+  //[fontName] = createFont("fontSpelling", [starting Font size]);
+ //Verify the font exists in Processing.Java
 } //End setup
   //
 void draw() {
-  
+  //
+  fill([colourName]);
+  textAlign([CENTER,CENTER]); //ALIGN X&Y, see processing.org / Refrence
+  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
+  size = [pixelNumberSize]; // interger number
+  textFont([PFont variables, size]); //stats which font to use
+  text([textStringName, four rect() variables copied from DIVs]);
+  //
 //text ("Microsoft" ,X float,Y float);
 //textSize (Size);
 } //End draw
