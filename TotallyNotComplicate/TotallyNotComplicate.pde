@@ -9,7 +9,7 @@ PFont ButtonFont;
 int ButtonSize, size;
 color red=#FC0000, white=#FFFFFF;
 float xQ, yQ, WQ, HQ;
-
+PImage picBackground;
 void setup() {
   // Print
   println("tester");
@@ -35,11 +35,20 @@ void setup() {
   HQ = HR*1/8 ; 
   String[] fontList = PFont.list (); 
   ButtonFont = createFont ("CalifornianFB-Bold",48);
+  //
+  //Population
+  fill(white);
+  rect(xBackG, yBackG, WBackG, HBackG);
+  //
+  //
+  picBackground = loadImage ("../image/Landscape/Banff.jpg"); 
+  //
 } //End setup
 void draw() {
   //size(600,400);
-  fill(white);
-  rect(xBackG, yBackG, WBackG, HBackG);
+  //
+    image (picBackground, xBackG, yBackG, WBackG, HBackG);
+    //
   fill(white);
   rect(xQ, yQ, WQ, HQ);
   fill(white);
@@ -47,12 +56,12 @@ void draw() {
   fill(red);
   rect(xBG, yBG, WBG, HBG);
   //TExt
-  //
   fill(white);
   textAlign(CENTER,CENTER);
   size=40;
   text(Button, xBG, yBG, WBG, HBG);
   textFont (ButtonFont, size);
+  //
 } //End draw
 void mousePressed() {
   //
