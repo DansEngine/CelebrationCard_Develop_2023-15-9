@@ -42,7 +42,7 @@ void setup() {
   rect(xBackG, yBackG, WBackG, HBackG);
   //
   //
-  picBackground = loadImage ("../image/Landscape/photo-1618174168866-c66b9d68e983.jpg");
+  picBackground = loadImage ("../imageUsed/Landscape/photo-1618174168866-c66b9d68e983.jpg");
   //
 } //End setup
 void draw() {
