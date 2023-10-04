@@ -1,84 +1,90 @@
-//Global Variables
-int appWidth, appHeight;
-float xRectbackground, yRectbackground, WRectbackground, HRectbackground;
-float x2Quit, y2Quit, W2Quit, H2Quit;
-//String //All tect variables as name = value pairs
-//PFont ;//All fonts used
-//color (variables)=Hex", ; //colour palette & ink; All color variables used (use color selector/tools)
-//int sizeFont, size ; //Text variables
-//
-// x = x axes of rectangle
-// y = y axes of rectangle
-// W = width of rectangle
-// H = height of rectangle
+//Global variables
+//BG = BackGround
+int HR, WR;
+float xBackG, yBackG, WBackG, HBackG;
+float xBG, yBG, WBG, HBG;
+float xText, yText, WText, HText;
+String Button="X";
+PFont ButtonFont;
+int ButtonSize, size;
+color red=#FC0000, white=#FFFFFF;
+float xQ, yQ, WQ, HQ;
+PImage picBackground;
+Boolean nightmode=false;
 void setup() {
-  //Ctrl+T: wide space
-  //print and println
-  println("hello world");
-  println("Width: "+width, "\tHieght: "+height);
-  println("Display Width:"+displayWidth, "\tDisplay Height: "+displayHeight);
-  //Character Escapes, tab, new
-  //
-  //fullScreen();
-  size(1080,720);
-  int appWidth = width;
-  int appHeight = height;
+  // Print
+  println("tester");
+  println("DisplayX: ", +displayWidth, "DisplayY: ", +displayHeight);
+  fullScreen ();
+  WR = width;
+  HR = height;
+  xBG = WR*1/64 ;
+  yBG = HR*1/32 ;
+  WBG = WR*1/32 ;
+  HBG = HR*1/16 ;
+  xBackG = WR*0 ;
+  yBackG = HR*0 ;
+  WBackG = WR -1 ;
+  HBackG = HR -1 ;
+  xText = WR*1/8 ;
+  yText = HR*1/4 ;
+  WText = WR*1/2;
+  HText = HR*1/2;
+  xQ = WR*1/128 ;
+  yQ = HR*1/64 ;
+  WQ = WR*1/16 ;
+  HQ = HR*1/8 ;
+  String[] fontList = PFont.list ();
+  ButtonFont = createFont ("CalifornianFB-Bold", 48);
   //
   //Population
-  xRectbackground = appWidth*0;
-  yRectbackground = appHeight*0;
-  WRectbackground = appWidth -1;
-  HRectbackground = appHeight -1;
-  x2Quit = appWidth*1/4;
-  y2Quit = appHeight*1/4;
-  W2Quit = appWidth *1/2;
-  H2Quit = appHeight *1/2;
+  fill(white);
+  rect(xBackG, yBackG, WBackG, HBackG);
   //
-  //DIVs
-  rect(xRectbackground, yRectbackground, WRectbackground, HRectbackground);
-  rect(x2Quit, y2Quit, W2Quit, H2Quit);
-  //rect(); //Background image.
-  //rect(); //Background image template.
-  //rect(); //Need Help? button.
-  //rect(); //image on the side. (birthday image)
-  //rect(); //image text.
-  //rect(); //text in middle.
-  //rect(); //Title.
-  //rect(); //Quit button (if he pressed this is will come over imidiately).
-  //rect(); //Quit button threat text.
-  //rect(); //Sincerely bottom.
-  //rect(); //Click Here button.
-  //rect(); //Ctrl + C.
   //
-  //Text Setup
-  //Fonts from OS (operation system)
-  //String[] fontList = PFont.list (); //List all fonts available on OS
-  //printArray(fontList);
-  //[fontName] = createFont("fontSpelling", [starting Font size]);
- //Verify the font exists in Processing.Java
+  picBackground = loadImage ("../image/Landscape/photo-1618174168866-c66b9d68e983.jpg");
+  //
 } //End setup
-  //
 void draw() {
+  //size(600,400);
   //
-  fill([colourName]);
-  textAlign([CENTER,CENTER]); //ALIGN X&Y, see processing.org / Refrence
-  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
-  size = [pixelNumberSize]; // interger number
-  textFont([PFont variables, size]); //stats which font to use
-  text([textStringName, four rect() variables copied from DIVs]);
+  image (picBackground, xBackG, yBackG, WBackG, HBackG);
+  if (nightmode==true) tint ( 255, 240, 2);
+  if (nightmode==true) {
+    tint ( 255, 240, 2);
+    println (nightmode);
+  } else {
+    noTint ();
+    println (nightmode);
+  }
   //
-//text ("Microsoft" ,X float,Y float);
-//textSize (Size);
+  fill(white);
+  rect(xQ, yQ, WQ, HQ);
+  fill(white);
+  rect(xText, yText, WText, HText);
+  fill(red);
+  rect(xBG, yBG, WBG, HBG);
+  //TExt
+  fill(white);
+  textAlign(CENTER, CENTER);
+  size=40;
+  text(Button, xBG, yBG, WBG, HBG);
+  textFont (ButtonFont, size);
+  //
 } //End draw
-//
-void keyPressed() {
-} //End keypressed
-//
 void mousePressed() {
-  println("Mouse X: ", mouseX, "Mouse Y: ", mouseY);
   //
-  //x2, y2, W2, H2
-  //if ( mouseX>x2Quit && mouseX<x2Quit+W2Quit && mouseY>y2Quit && mouseY<y2Quit+H2Quit) exit();
-} //End mousePressed
-//
-//End MAIN Program
+  if (mouseX>xBG && mouseX<xBG + WBG && mouseY>yBG && mouseY<yBG + HBG) exit();
+  //
+} //END
+void keyPressed() {
+  //
+  //nightmode
+  if (key=='n' || key=='N') {
+  if ( nightmode==true ) {
+    nightmode = false;
+  } else {
+      nightmode = true;
+  }
+ }
+} //END
