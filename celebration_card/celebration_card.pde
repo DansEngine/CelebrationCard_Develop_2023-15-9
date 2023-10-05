@@ -53,10 +53,9 @@ void draw() {
   //
   if ( nightmode==true ) { 
   tint(brightnessNumber, brightnessGreen, 40);
-  //println(nightmode);
+  //
   } else {
-  noTint(); //See Processing DOC
-  //println(nightmode);
+  noTint();
   }
   //
   if ( brightnessControl==true) tint(255, brightnessNumber);
@@ -66,7 +65,6 @@ void draw() {
      brightnessNumber>255 ) {
        brightnessNumber=255; 
   } else { 
-    //EMPTY ELSE ; Console
    tint(255, brightnessNumber );
    println ( brightnessNumber );
   }
