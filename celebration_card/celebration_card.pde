@@ -11,6 +11,9 @@ color red=#FC0000, white=#FFFFFF;
 float xQ, yQ, WQ, HQ;
 PImage picBackground;
 Boolean nightmode=false;
+Boolean brightnessControl = false; //Note: arrow
+int brightnessNumber=255; //range: 1-255
+int brightnessGreen=128;
 void setup() {
   // Print
   println("tester");
@@ -48,17 +51,36 @@ void setup() {
 void draw() {
   //size(600,400);
   //
-  image (picBackground, xBackG, yBackG, WBackG, HBackG);
-  if (nightmode==true) tint ( 255, 240, 2);
-  if (nightmode==true) {
-    tint ( 255, 240, 2);
-    println (nightmode);
+  if ( nightmode==true ) { 
+  tint(brightnessNumber, brightnessGreen, 40);
+  //println(nightmode);
   } else {
-    noTint ();
-    println (nightmode);
+  noTint(); //See Processing DOC
+  //println(nightmode);
   }
   //
-  fill(white);
+  if ( brightnessControl==true) tint(255, brightnessNumber);
+  if ( brightnessNumber<1 ) {
+    brightnessNumber=1; 
+   } else if (
+     brightnessNumber>255 ) {
+       brightnessNumber=255; 
+  } else { 
+    //EMPTY ELSE ; Console
+   tint(255, brightnessNumber );
+   println ( brightnessNumber );
+  }
+  if ( brightnessControl==true) tint(255, brightnessNumber);
+  if ( brightnessGreen<1 ) {
+    brightnessGreen=1; 
+   } else if (
+     brightnessGreen>128 ) {
+       brightnessGreen=128; 
+  }
+ background ( 0 );
+    if ( nightmode==true ) tint(brightnessNumber, brightnessGreen, 40); //Gray scale: (rgb)
+    image (picBackground, xBackG, yBackG, WBackG, HBackG);
+    fill(white);
   rect(xQ, yQ, WQ, HQ);
   fill(white);
   rect(xText, yText, WText, HText);
@@ -70,6 +92,7 @@ void draw() {
   size=40;
   text(Button, xBG, yBG, WBG, HBG);
   textFont (ButtonFont, size);
+  //
   //
 } //End draw
 void mousePressed() {
@@ -87,4 +110,14 @@ void keyPressed() {
       nightmode = true;
   }
  }
+ if ( key==CODED && keyCode==UP || keyCode==DOWN ) {
+  brightnessControl = true;
+  if ( key==CODED && keyCode==UP ) brightnessNumber++ ; 
+  if ( key==CODED && keyCode==DOWN ) brightnessNumber-- ; 
+  }
+  if ( key==CODED && keyCode==UP || keyCode==DOWN ) { 
+  brightnessControl = true;
+  if ( key==CODED && keyCode==UP ) brightnessGreen++ ; 
+  if ( key==CODED && keyCode==DOWN ) brightnessGreen-- ;
+  }
 } //END
