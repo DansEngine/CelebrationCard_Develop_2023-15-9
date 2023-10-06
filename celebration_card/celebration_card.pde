@@ -68,6 +68,17 @@ void setup() {
 void draw() {
   //size(600,400);
   //
+  int hourNightmode = hour (); // 24:hour
+  println(hourNightmode);
+  if ( hourNightmode>16 ) {
+    nightmode=true;
+  } else if ( hourNightmode<05 ) {
+    nightmode=true;
+  } else {
+    nightmode=false;
+     println (nightmode);
+  }
+  //timing :)
   if ( nightmode==true ) { 
   tint(brightnessRed, brightnessGreen, 40);
   //
@@ -109,15 +120,20 @@ void draw() {
     image (picBackground, xBackG, yBackG, WBackG, HBackG);
     fill (white);
   rect (xQ, yQ, WQ, HQ);
+  //
   fill (white);
   rect (xText, yText, WText, HText);
+  //
   fill (red);
   rect (xBG, yBG, WBG, HBG);
+  //
   fill (white);
   textAlign (CENTER, CENTER);
   size=40;
   text (Button, xBG, yBG, WBG, HBG);
   textFont (ButtonFont, size);
+  //
+  noFill ();
   //
   fill (white);
   //Title
@@ -125,7 +141,6 @@ void draw() {
   fill (0);
   text(TextTittle, xTitle, yTitle, WTitle, HTitle);
   textAlign (CENTER, CENTER);
-  size=1000;
   textFont (ButtonFont, size);
   //
   //
