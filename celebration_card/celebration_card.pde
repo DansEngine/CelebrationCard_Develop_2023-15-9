@@ -1,22 +1,37 @@
 //Global variables
 //BG = BackGround
+int TextMouseX, TextMouseY;
 int HR, WR;
+//
 float xBackG, yBackG, WBackG, HBackG;
 float xBG, yBG, WBG, HBG;
 float xText, yText, WText, HText;
+//
 String Button="X";
 String TextTittle="Invitation";
+//
 PFont ButtonFont;
+//
 int ButtonSize, size;
+//
 color red=#FC0000, white=#FFFFFF;
+//
 float xQ, yQ, WQ, HQ;
+//
 PImage picBackground;
+//
 Boolean nightmode=false;
 Boolean brightnessControl = false; //Note: arrow
+//
 int brightnessNumber=255; //range: 1-255
 int brightnessRed=255;
 int brightnessGreen=255;
+//
 float xTitle, yTitle, WTitle, HTitle;
+//
+float tittleSize;
+//
+Boolean textSize=false;
 void setup() {
   // Print
   println("tester");
@@ -139,6 +154,7 @@ void draw() {
   //Title
   rect(xTitle, yTitle, WTitle, HTitle);
   fill (0);
+  textSize (tittleSize);
   text(TextTittle, xTitle, yTitle, WTitle, HTitle);
   textAlign (CENTER, CENTER);
   textFont (ButtonFont, size);
@@ -148,8 +164,9 @@ void draw() {
 void mousePressed() {
   //
   if (mouseX>xBG && mouseX<xBG + WBG && mouseY>yBG && mouseY<yBG + HBG) exit();
+  if (mouseX> && mouseX< + && mouseY> && mouseY< + ) [if () {} else {} ];
   //
-} //END
+} //END setup 2
 void keyPressed() {
   //
   //nightmode press
