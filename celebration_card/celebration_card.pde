@@ -6,6 +6,7 @@ int HR, WR;
 float xBackG, yBackG, WBackG, HBackG;
 float xBG, yBG, WBG, HBG;
 float xText, yText, WText, HText;
+float xSize, ySize, WSize, HSize;
 //
 String Button="X";
 String TextTittle="Invitation";
@@ -22,6 +23,7 @@ PImage picBackground;
 //
 Boolean nightmode=false;
 Boolean brightnessControl = false; //Note: arrow
+Boolean textSize=false;
 //
 int brightnessNumber=255; //range: 1-255
 int brightnessRed=255;
@@ -31,7 +33,6 @@ float xTitle, yTitle, WTitle, HTitle;
 //
 float tittleSize;
 //
-Boolean textSize=false;
 void setup() {
   // Print
   println("tester");
@@ -67,6 +68,11 @@ void setup() {
   yTitle = HR*1/12;
   WTitle = WR*2/5;
   HTitle = HR*1/8;
+  //
+  xSize = WR*8/9;
+  ySize = HR*7/9;
+  WSize = WR*1/8;
+  HSize = HR*1/8;
   //
   String[] fontList = PFont.list ();
   ButtonFont = createFont ("CalifornianFB-Bold", 48);
@@ -158,13 +164,21 @@ void draw() {
   text(TextTittle, xTitle, yTitle, WTitle, HTitle);
   textAlign (CENTER, CENTER);
   textFont (ButtonFont, size);
+  fill(0);
+  //
+  fill (255);
+  rect(xSize, ySize, WSize, HSize);
   //
   //
 } //End draw
 void mousePressed() {
   //
   if (mouseX>xBG && mouseX<xBG + WBG && mouseY>yBG && mouseY<yBG + HBG) exit();
-  if (mouseX> && mouseX< + && mouseY> && mouseY< + ) [if () {} else {} ];
+  if (mouseX>xSize && mouseX<xSize + WSize && mouseY>ySize && mouseY<ySize +WSize) {
+      textSize(200);
+    } else if (mouseX>xSize && mouseX<xSize + WSize && mouseY>ySize && mouseY<ySize +WSize) {
+      textSize(100);
+    };
   //
 } //END setup 2
 void keyPressed() {
