@@ -5,8 +5,11 @@ int HR, WR;
 //
 float xBackG, yBackG, WBackG, HBackG;
 float xBG, yBG, WBG, HBG;
-float xText, yText, WText, HText;
+float xTextG, yTextG, WTextG, HTextG;
 float xSize, ySize, WSize, HSize;
+float xIn, yIn, WIn, HIn;
+float xCI, yCI, WCI, HCI;
+float xT, yT, WT, HT;
 //
 String Button="X";
 String TextTittle="Invitation";
@@ -17,13 +20,10 @@ int ButtonSize, size;
 //
 color red=#FC0000, white=#FFFFFF;
 //
-float xQ, yQ, WQ, HQ;
-//
 PImage picBackground;
 //
 Boolean nightmode=false;
 Boolean brightnessControl = false; //Note: arrow
-Boolean textSize=false;
 //
 int brightnessNumber=255; //range: 1-255
 int brightnessRed=255;
@@ -42,31 +42,31 @@ void setup() {
   WR = width;
   HR = height;
   //
-  xBG = WR*1/64 ;
-  yBG = HR*1/32 ;
-  WBG = WR*1/32 ;
-  HBG = HR*1/16 ;
+  xBG = WR*19/20 ;
+  yBG = HR*0 ;
+  WBG = WR*1/20 ;
+  HBG = HR*1/20 ;
   //
   xBackG = WR*0 ;
   yBackG = HR*0 ;
   WBackG = WR -1 ;
   HBackG = HR -1 ;
   //
-  xText = WR*1/8 ;
-  yText = HR*1/4 ;
-  WText = WR*1/2;
-  HText = HR*1/2;
+  xTextG = WR*1/6 ;
+  yTextG = HR*1/4 ;
+  WTextG = WR*2/3;
+  HTextG = HR*1/2;
   //
-  xQ = WR*1/128 ;
-  yQ = HR*1/64 ;
-  WQ = WR*1/16 ;
-  HQ = HR*1/8 ;
+  xCI = xTextG*5/6 ;
+  yCI = yTextG ;
+  WCI = WTextG*1/3 ;
+  HCI = HTextG ;
   //
   //Title
   //
-  xTitle = WText*1/4;
+  xTitle = WR*1/4;
   yTitle = HR*1/12;
-  WTitle = WR*2/5;
+  WTitle = WR*1/2;
   HTitle = HR*1/8;
   //
   xSize = WR*8/9;
@@ -74,6 +74,10 @@ void setup() {
   WSize = WR*1/8;
   HSize = HR*1/8;
   //
+  xT = xTextG*2/6;
+  yT = yTextG;
+  WT = WTextG*2/3;
+  HT = HTextG;
   String[] fontList = PFont.list ();
   ButtonFont = createFont ("CalifornianFB-Bold", 48);
   //DIVs END
@@ -83,7 +87,7 @@ void setup() {
   rect(xBackG, yBackG, WBackG, HBackG);
   //
   //
-  picBackground = loadImage ("../imageUsed/Landscape/ROG_STRIX_product_wallpaper_1920x1200.jpg");
+  picBackground = loadImage ("../imageUsed/Landscape/photo-1618174168866-c66b9d68e983.jpg");
   //
 } //End setup
 void draw() {
@@ -139,11 +143,12 @@ void draw() {
  background ( 0 );
     if ( nightmode==true ) tint(brightnessRed, brightnessGreen, 40); //Gray scale: (rgb)
     image (picBackground, xBackG, yBackG, WBackG, HBackG);
-    fill (white);
-  rect (xQ, yQ, WQ, HQ);
   //
   fill (white);
-  rect (xText, yText, WText, HText);
+  rect (xTextG, yTextG, WTextG, HTextG);
+  //
+  fill (red);
+  rect (xCI, yCI, WCI, HCI);
   //
   fill (red);
   rect (xBG, yBG, WBG, HBG);
@@ -160,7 +165,7 @@ void draw() {
   //Title
   rect(xTitle, yTitle, WTitle, HTitle);
   fill (0);
-  textSize (tittleSize);
+  textSize (100);
   text(TextTittle, xTitle, yTitle, WTitle, HTitle);
   textAlign (CENTER, CENTER);
   textFont (ButtonFont, size);
@@ -169,16 +174,13 @@ void draw() {
   fill (255);
   rect(xSize, ySize, WSize, HSize);
   //
+  rect();
+  //
   //
 } //End draw
 void mousePressed() {
   //
   if (mouseX>xBG && mouseX<xBG + WBG && mouseY>yBG && mouseY<yBG + HBG) exit();
-  if (mouseX>xSize && mouseX<xSize + WSize && mouseY>ySize && mouseY<ySize +WSize) {
-      textSize(200);
-    } else if (mouseX>xSize && mouseX<xSize + WSize && mouseY>ySize && mouseY<ySize +WSize) {
-      textSize(100);
-    };
   //
 } //END setup 2
 void keyPressed() {
