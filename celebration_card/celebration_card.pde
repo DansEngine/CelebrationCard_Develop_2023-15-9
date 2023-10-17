@@ -14,7 +14,7 @@ float size2;
 //
 String Button="X";
 String TextTittle="Happy Brithday";
-String Text="dear, Mom.";
+String Text="dear, Dad.";
 String Body="this card is for celebrating your birthday, as this also a message to wish you to success.";
 //
 PFont ButtonFont;
