@@ -6,7 +6,6 @@ int HR, WR;
 float xBackG, yBackG, WBackG, HBackG;
 float xBG, yBG, WBG, HBG;
 float xTextG, yTextG, WTextG, HTextG;
-float xSize, ySize, WSize, HSize;
 float xIn, yIn, WIn, HIn;
 float xCI, yCI, WCI, HCI;
 float xT, yT, WT, HT;
@@ -73,16 +72,12 @@ void setup() {
   WTitle = WR*1/2;
   HTitle = HR*1/8;
   //
-  xSize = WR*8/9;
-  ySize = HR*7/9;
-  WSize = WR*1/8;
-  HSize = HR*1/8;
-  //
   xT = WR*1/6;
   yT = HR*1/4;
   WT = WTextG*2/3;
   HT = HTextG*5/6;
   String[] fontList = PFont.list ();
+  printArray (fontList);
   ButtonFont = createFont ("CalifornianFB-Bold", 48);
   //DIVs END
   //
@@ -105,7 +100,6 @@ void draw() {
     nightmode=true;
   } else {
     nightmode=false;
-     println (nightmode);
   }
   //timing :)
   if ( nightmode==true ) { 
@@ -123,7 +117,6 @@ void draw() {
        brightnessNumber=255; 
   } else { 
    tint(255, brightnessNumber );
-   println ( brightnessNumber );
   }
   //
   // Red system
@@ -176,8 +169,6 @@ void draw() {
   fill(0);
   //
   fill (255);
-  rect(xSize, ySize, WSize, HSize);
-  //
   rect(xT, yT, WT, HT);
   //
   fill(0);
@@ -214,7 +205,7 @@ void keyPressed() {
   //Key system 2
   if ( key==CODED && keyCode==UP || keyCode==DOWN ) { 
   brightnessControl = true;
-  if ( key==CODED && keyCode==UP ) brightnessGreen++ ; 
+  if ( key==CODED && keyCode==UP ) brightnessGreen++ ;
   if ( key==CODED && keyCode==DOWN ) brightnessGreen-- ;
   }
   //Key system 3
