@@ -13,8 +13,8 @@ float xT, yT, WT, HT;
 float size2;
 //
 String Button="X";
-String TextTittle="Invitation";
-String Text="dear Seb happy brithdays from your friend.";
+String TextTittle="Happy Brithday";
+String Text="dear Ludwig.";
 //
 PFont ButtonFont;
 //
@@ -181,8 +181,7 @@ void draw() {
   //
   fill(0);
   textSize(30);
-  text(Text, xT, yT, WT, HT);
-  textAlign (TOP, CENTER);
+  text(Text, xT, TOP, WT, HT);
   textFont (ButtonFont, size);
   //
   //
