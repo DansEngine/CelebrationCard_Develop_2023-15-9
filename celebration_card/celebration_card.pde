@@ -10,9 +10,11 @@ float xSize, ySize, WSize, HSize;
 float xIn, yIn, WIn, HIn;
 float xCI, yCI, WCI, HCI;
 float xT, yT, WT, HT;
+float size2;
 //
 String Button="X";
 String TextTittle="Invitation";
+String Text="dear Seb happy brithdays from your friend.";
 //
 PFont ButtonFont;
 //
@@ -37,12 +39,13 @@ void setup() {
   // Print
   println("tester");
   println("DisplayX: ", +displayWidth, "DisplayY: ", +displayHeight);
-  fullScreen ();
+  //fullScreen ();
+  size (1080,720);
   //DIVs
   WR = width;
   HR = height;
   //
-  xBG = WR*19/20 ;
+  xBG = WR*0 ;
   yBG = HR*0 ;
   WBG = WR*1/20 ;
   HBG = HR*1/20 ;
@@ -57,7 +60,7 @@ void setup() {
   WTextG = WR*2/3;
   HTextG = HR*1/2;
   //
-  xCI = xTextG*5/6 ;
+  xCI = WR*4/6 ;
   yCI = yTextG ;
   WCI = WTextG*1/3 ;
   HCI = HTextG ;
@@ -74,10 +77,10 @@ void setup() {
   WSize = WR*1/8;
   HSize = HR*1/8;
   //
-  xT = xTextG*2/6;
-  yT = yTextG;
+  xT = WR*1/6;
+  yT = HR*1/4;
   WT = WTextG*2/3;
-  HT = HTextG;
+  HT = HTextG*5/6;
   String[] fontList = PFont.list ();
   ButtonFont = createFont ("CalifornianFB-Bold", 48);
   //DIVs END
@@ -155,7 +158,7 @@ void draw() {
   //
   fill (white);
   textAlign (CENTER, CENTER);
-  size=40;
+  size=15;
   text (Button, xBG, yBG, WBG, HBG);
   textFont (ButtonFont, size);
   //
@@ -165,7 +168,7 @@ void draw() {
   //Title
   rect(xTitle, yTitle, WTitle, HTitle);
   fill (0);
-  textSize (100);
+  textSize (50);
   text(TextTittle, xTitle, yTitle, WTitle, HTitle);
   textAlign (CENTER, CENTER);
   textFont (ButtonFont, size);
@@ -174,7 +177,13 @@ void draw() {
   fill (255);
   rect(xSize, ySize, WSize, HSize);
   //
-  rect();
+  rect(xT, yT, WT, HT);
+  //
+  fill(0);
+  textSize(30);
+  text(Text, xT, yT, WT, HT);
+  textAlign (TOP, CENTER);
+  textFont (ButtonFont, size);
   //
   //
 } //End draw
