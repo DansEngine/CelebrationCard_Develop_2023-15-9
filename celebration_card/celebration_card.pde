@@ -14,7 +14,8 @@ float size2;
 //
 String Button="X";
 String TextTittle="Happy Brithday";
-String Text="dear Ludwig.";
+String Text="dear, Mom.";
+String Body="this card is for celebrating your birthday, as this also a message to wish you to success.";
 //
 PFont ButtonFont;
 //
@@ -182,6 +183,9 @@ void draw() {
   fill(0);
   textSize(30);
   text(Text, xT, TOP, WT, HT);
+  textFont (ButtonFont, size);
+  textSize(25);
+  text(Body, xT, yT, WT, HT);
   textFont (ButtonFont, size);
   //
   //
