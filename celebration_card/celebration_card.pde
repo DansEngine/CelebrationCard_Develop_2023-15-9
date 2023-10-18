@@ -14,15 +14,15 @@ float size2;
 String Button="X";
 String TextTittle="Happy Brithday";
 String Text="dear, Dad.";
-String Body="this card is for celebrating your birthday, as this also a message to wish you to success.";
+String Body="this card is for celebrating your birthday, as this also a message to wish you to success and have a healthy throughout time.";
 //
-PFont ButtonFont;
+PFont ButtonFont, TextFont;
 //
 int ButtonSize, size;
 //
 color red=#FC0000, white=#FFFFFF;
 //
-PImage picBackground;
+PImage picBackground, ADI;
 //
 Boolean nightmode=false;
 Boolean brightnessControl = false; //Note: arrow
@@ -78,7 +78,8 @@ void setup() {
   HT = HTextG*5/6;
   String[] fontList = PFont.list ();
   printArray (fontList);
-  ButtonFont = createFont ("CalifornianFB-Bold", 48);
+  ButtonFont = createFont ("Californian FB Bold", 48);
+  TextFont = createFont ("Calisto MT Italic", 48);
   //DIVs END
   //
   //Population
@@ -87,13 +88,16 @@ void setup() {
   //
   //
   picBackground = loadImage ("../imageUsed/Landscape/photo-1618174168866-c66b9d68e983.jpg");
+  String open = "/";
+  String in = "..";
+  String image = "imageUsed/Landscape/";
+  ADI = loadImage (in + open + image + "image.jpg");
   //
 } //End setup
 void draw() {
   //size(600,400);
   //
   int hourNightmode = hour (); // 24:hour
-  println(hourNightmode);
   if ( hourNightmode>16 ) {
     nightmode=true;
   } else if ( hourNightmode<05 ) {
@@ -146,6 +150,7 @@ void draw() {
   //
   fill (red);
   rect (xCI, yCI, WCI, HCI);
+  image (ADI, xCI, yCI, WCI, HCI);
   //
   fill (red);
   rect (xBG, yBG, WBG, HBG);
@@ -165,7 +170,7 @@ void draw() {
   textSize (50);
   text(TextTittle, xTitle, yTitle, WTitle, HTitle);
   textAlign (CENTER, CENTER);
-  textFont (ButtonFont, size);
+  textFont (TextFont, size);
   fill(0);
   //
   fill (255);
