@@ -9,14 +9,15 @@ float xTextG, yTextG, WTextG, HTextG;
 float xIn, yIn, WIn, HIn;
 float xCI, yCI, WCI, HCI;
 float xT, yT, WT, HT;
+float xS, yS, WS, HS;
 float size2;
 //
 String Button="X";
 String TextTittle="Happy Brithday";
-String Text="dear, Dad.";
-String Body="this card is for celebrating your birthday, as this also a message to wish you to success and have a healthy throughout time.";
+String Text="Dear, Dad.";
+String Body="this card is for celebrating your birthday, as this also a message to wish you to be successful and become more healthy throughout time, and I wish that you increase my allowance.";
 //
-PFont ButtonFont, TextFont;
+PFont ButtonFont, TextFont, SignatureFont;
 //
 int ButtonSize, size;
 //
@@ -41,11 +42,11 @@ void setup() {
   println("DisplayX: ", +displayWidth, "DisplayY: ", +displayHeight);
   //fullScreen ();
   size (1080,720);
-  //DIVs
+  //Population
   WR = width;
   HR = height;
   //
-  xBG = WR*0 ;
+  xBG = WR*19/20 ;
   yBG = HR*0 ;
   WBG = WR*1/20 ;
   HBG = HR*1/20 ;
@@ -80,9 +81,10 @@ void setup() {
   printArray (fontList);
   ButtonFont = createFont ("Californian FB Bold", 48);
   TextFont = createFont ("Calisto MT Italic", 48);
-  //DIVs END
+  SignatureFont = createFont ("Courier New", 48);
+  //Population end
   //
-  //Population
+  //DIVs
   fill(white);
   rect(xBackG, yBackG, WBackG, HBackG);
   //
@@ -148,7 +150,7 @@ void draw() {
   fill (white);
   rect (xTextG, yTextG, WTextG, HTextG);
   //
-  fill (red);
+  fill (0);
   rect (xCI, yCI, WCI, HCI);
   image (ADI, xCI, yCI, WCI, HCI);
   //
@@ -178,7 +180,7 @@ void draw() {
   //
   fill(0);
   textSize(30);
-  text(Text, xT, TOP, WT, HT);
+  text(Text, xT, HR*1/10, WT, HT);
   textFont (ButtonFont, size);
   textSize(25);
   text(Body, xT, yT, WT, HT);
