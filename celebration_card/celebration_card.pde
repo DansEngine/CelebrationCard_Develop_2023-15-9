@@ -62,7 +62,6 @@ void setup() {
   WTextG = WR*2/3;
   HTextG = HR*1/2;
   //
-  xCIrect = WR*4/6 ;
   yCIrect = yTextG ;
   xCI = WR*4/6 ;
   yCI = yTextG ;
@@ -104,9 +103,10 @@ void setup() {
     println ("my dad is square");
   HCI = HCIrect;
   WCI = aspectRatio * HCIrect;
-  } else {
+  } else if (HCI < WCI) {
     println ("you broke the aspect, debug!");
   }
+xCIrect = xTextG + ((xTextG - WCI)*-2);
   //
 } //End setup
 void draw() {
@@ -164,7 +164,7 @@ void draw() {
   rect (xTextG, yTextG, WTextG, HTextG);
   //
   fill (0);
-  rect (xCI, yCI, WCIrect, HCIrect);
+  //rect (xCI, yCI, WCIrect, HCIrect);
   image ( ADI, xCIrect, yCIrect, WCI, HCI );
   //
   fill (red);
