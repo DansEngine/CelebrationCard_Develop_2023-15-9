@@ -7,6 +7,7 @@ float xBackG, yBackG, WBackG, HBackG;
 float xBG, yBG, WBG, HBG;
 float xTextG, yTextG, WTextG, HTextG;
 float xIn, yIn, WIn, HIn;
+float xCIrect, yCIrect, WCIrect,HCIrect;
 float xCI, yCI, WCI, HCI;
 float xT, yT, WT, HT;
 float xS, yS, WS, HS;
@@ -61,10 +62,11 @@ void setup() {
   WTextG = WR*2/3;
   HTextG = HR*1/2;
   //
+  xCIrect = WR*4/6 ;
+  yCIrect = yTextG ;
   xCI = WR*4/6 ;
   yCI = yTextG ;
-  WCI = WTextG*1/3 ;
-  HCI = HTextG ;
+  HCIrect = HTextG ;
   //
   //Title
   //
@@ -94,6 +96,17 @@ void setup() {
   String in = "..";
   String image = "imageUsed/Landscape/";
   ADI = loadImage (in + open + image + "image.jpg");
+  WCI = 500.0 ;
+  HCI = 501.0 ;
+  float aspectRatio = 0.0 ;
+  if (HCI > WCI) {
+    aspectRatio = WCI/HCI;
+    println ("my dad is square");
+  HCI = HCIrect;
+  WCI = aspectRatio * HCIrect;
+  } else {
+    println ("you broke the aspect, debug!");
+  }
   //
 } //End setup
 void draw() {
@@ -151,8 +164,8 @@ void draw() {
   rect (xTextG, yTextG, WTextG, HTextG);
   //
   fill (0);
-  rect (xCI, yCI, WCI, HCI);
-  image (ADI, xCI, yCI, WCI, HCI);
+  rect (xCI, yCI, WCIrect, HCIrect);
+  image ( ADI, xCIrect, yCIrect, WCI, HCI );
   //
   fill (red);
   rect (xBG, yBG, WBG, HBG);
