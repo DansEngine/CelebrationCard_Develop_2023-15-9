@@ -106,7 +106,7 @@ void setup() {
   } else if (HCI < WCI) {
     println ("you broke the aspect, debug!");
   }
-xCIrect = xTextG + ((xTextG - WCI)*-2);
+xCIrect = xTextG + ((xTextG - WCI)*-5/2);
   //
 } //End setup
 void draw() {
