@@ -11,6 +11,7 @@ float xCIrect, yCIrect, WCIrect,HCIrect;
 float xCI, yCI, WCI, HCI;
 float xT, yT, WT, HT;
 float xS, yS, WS, HS;
+float SMX, SMY, SMW, SMH;
 float size2;
 //
 String Button="X";
@@ -22,12 +23,13 @@ PFont ButtonFont, TextFont, SignatureFont;
 //
 int ButtonSize, size;
 //
-color red=#FC0000, white=#FFFFFF;
+color red=#FC0000, white=#FFFFFF, gray=#DBDBDB;
 //
 PImage picBackground, ADI;
 //
 Boolean nightmode=false;
-Boolean brightnessControl = false; //Note: arrow
+Boolean brightnessControl = false;//Note: arrow
+Boolean sizeMatter=false;
 //
 int brightnessNumber=255; //range: 1-255
 int brightnessRed=255;
@@ -41,8 +43,15 @@ void setup() {
   // Print
   println("tester");
   println("DisplayX: ", +displayWidth, "DisplayY: ", +displayHeight);
-  //fullScreen ();
   size (1080,720);
+  //fullScreen ();
+  /*
+  if (sizeMatter==false) {
+    size (1080,720);
+  } else if (sizeMatter==true) {
+    fullScreen ();
+  }
+  */
   //Population
   WR = width;
   HR = height;
@@ -78,6 +87,12 @@ void setup() {
   yT = HR*1/4;
   WT = WTextG*2/3;
   HT = HTextG*5/6;
+  //smallerScreen matter.
+  SMX = WR*18/20;
+  SMY = yBG;
+  SMW = WBG;
+  SMH = HBG;
+  //
   String[] fontList = PFont.list ();
   printArray (fontList);
   ButtonFont = createFont ("Californian FB Bold", 48);
@@ -88,6 +103,10 @@ void setup() {
   //DIVs
   fill(white);
   rect(xBackG, yBackG, WBackG, HBackG);
+  fill (255);
+  rect (xBG, yBG, WBG, HBG);
+  fill (white);
+  rect (SMX, SMY, SMW, SMH);
   //
   //
   picBackground = loadImage ("../imageUsed/Landscape/photo-1618174168866-c66b9d68e983.jpg");
@@ -167,10 +186,20 @@ void draw() {
   //rect (xCI, yCI, WCIrect, HCIrect);
   image ( ADI, xCIrect, yCIrect, WCI, HCI );
   //
-  fill (red);
+  //QUIT BUTTON
+  fill (255);
   rect (xBG, yBG, WBG, HBG);
+  int overCH = red;
+  if ( mouseX>xBG && mouseX<xBG + WBG && mouseY>yBG && mouseY<yBG + HBG ) {
+    fill (overCH);
+    rect (xBG, yBG, WBG, HBG);
+  } else {
+    fill(255);
+    rect (xBG, yBG, WBG, HBG);
+  }
+  //END QUIT BUTTON
   //
-  fill (white);
+  fill(0);
   textAlign (CENTER, CENTER);
   size=15;
   text (Button, xBG, yBG, WBG, HBG);
@@ -178,6 +207,16 @@ void draw() {
   //
   noFill ();
   //
+  int overHC = gray;
+  fill (white);
+  rect (SMX, SMY, SMW, SMH);
+  if ( mouseX>SMX && mouseX<SMX + SMW && mouseY>SMY && mouseY<SMY + SMH ) {
+    fill (overHC);
+    rect (SMX, SMY, SMW, SMH);
+  } else {
+    fill (255);
+    rect (SMX, SMY, SMW, SMH);
+  }
   fill (white);
   //Title
   rect(xTitle, yTitle, WTitle, HTitle);
@@ -204,6 +243,7 @@ void draw() {
 void mousePressed() {
   //
   if (mouseX>xBG && mouseX<xBG + WBG && mouseY>yBG && mouseY<yBG + HBG) exit();
+  if (mouseX>SMX && mouseX<SMX + SMW && mouseY>SMY && mouseY<SMY + SMH) sizeMatter=true;
   //
 } //END setup 2
 void keyPressed() {
