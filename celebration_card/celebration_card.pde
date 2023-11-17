@@ -9,6 +9,9 @@ float xTextG, yTextG, WTextG, HTextG;
 float xIn, yIn, WIn, HIn;
 float xCIrect, yCIrect, WCIrect,HCIrect;
 float xCI, yCI, WCI, HCI;
+float areUX, areUY ,areUW, areUH;
+float BYX, BYY, BYW, BYH;
+float BNX, BNY, BNW, BNH;
 float xT, yT, WT, HT;
 float xS, yS, WS, HS;
 float SMX, SMY, SMW, SMH;
@@ -30,6 +33,7 @@ PImage picBackground, ADI;
 Boolean nightmode=false;
 Boolean brightnessControl = false;//Note: arrow
 Boolean sizeMatter=false;
+Boolean RUN=false;
 //
 int brightnessNumber=255; //range: 1-255
 int brightnessRed=255;
@@ -126,6 +130,7 @@ void setup() {
     println ("you broke the aspect, debug!");
   }
 xCIrect = xTextG + ((xTextG - WCI)*-5/2);
+  //
   //
 } //End setup
 void draw() {
@@ -237,13 +242,20 @@ void draw() {
   textSize(25);
   text(Body, xT, yT, WT, HT);
   textFont (ButtonFont, size);
+  if 
+  ( RUN=true ) {
+    areyousure();
+  } else if 
+  ( RUN=false ) {
+    nothing();
+  }
   //
   //
 } //End draw
 void mousePressed() {
   //
-  if (mouseX>xBG && mouseX<xBG + WBG && mouseY>yBG && mouseY<yBG + HBG) exit();
-  if (mouseX>SMX && mouseX<SMX + SMW && mouseY>SMY && mouseY<SMY + SMH) sizeMatter=true;
+  if (mouseX>xBG && mouseX<xBG + WBG && mouseY>yBG && mouseY<yBG + HBG) RUN=true;//exit();
+  if (mouseX>SMX && mouseX<SMX + SMW && mouseY>SMY && mouseY<SMY + SMH) RUN=false;
   //
 } //END setup 2
 void keyPressed() {
