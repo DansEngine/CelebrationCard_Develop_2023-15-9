@@ -8,7 +8,7 @@ void areyousure () {
   BYW = WR;
   BYH = HR;
   //
-  fill(0);
+  fill(255);
   rect( areUX, areUY ,areUW, areUH );
   rect( BYX, BYY, BYW, BYH );
   //rect( BNX, BNY, BNW, BNH );
@@ -18,6 +18,7 @@ void areyousure () {
 //
 //
 void nothing () {
+  noStroke();
   noFill();
   rect( areUX, areUY ,areUW, areUH );
   rect( BYX, BYY, BYW, BYH );

@@ -180,6 +180,7 @@ void draw() {
   //DIVs for rect and main set
   //
   //Population Draw
+  stroke(1);
  background ( 0 );
     if ( nightmode==true ) tint(brightnessRed, brightnessGreen, 40); //Gray scale: (rgb)
     image (picBackground, xBackG, yBackG, WBackG, HBackG);
@@ -243,10 +244,11 @@ void draw() {
   text(Body, xT, yT, WT, HT);
   textFont (ButtonFont, size);
   if 
-  ( RUN=true ) {
+  ( RUN==true ) {
+    stroke(1);
     areyousure();
   } else if 
-  ( RUN=false ) {
+  ( RUN==false ) {
     nothing();
   }
   //
@@ -254,8 +256,12 @@ void draw() {
 } //End draw
 void mousePressed() {
   //
-  if (mouseX>xBG && mouseX<xBG + WBG && mouseY>yBG && mouseY<yBG + HBG) RUN=true;//exit();
-  if (mouseX>SMX && mouseX<SMX + SMW && mouseY>SMY && mouseY<SMY + SMH) RUN=false;
+  if (mouseX>xBG && mouseX<xBG + WBG && mouseY>yBG && mouseY<yBG + HBG) if (RUN == false) {
+    RUN = true;
+  } else {
+    RUN = false;
+  }//exit();
+  //if (mouseX>SMX && mouseX<SMX + SMW && mouseY>SMY && mouseY<SMY + SMH) RUN=false;
   //
 } //END setup 2
 void keyPressed() {
